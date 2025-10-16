@@ -1,0 +1,382 @@
+.galeria-card {
+  background: #1B3E76;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  width: 100%;
+}
+
+.galeria-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.galeria-header-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.section {
+  background: #1B3E76;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+}
+
+.fila-superior {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.columna-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.columna-video video {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.columna-texto h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.columna-texto button:hover {
+  transform: scale(1.1);
+}
+
+.imagenes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+.imagenes-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.imagenes-grid img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   BOTÓN CIRCULAR (FLECHA)
+   ========================= */
+/* El botón visual es el propio .carousel-btn; la flecha blanca se pinta con ::after usando un SVG inline
+   (data URI). Para la versión "left" giramos la flecha 180deg. */
+
+.carousel-btn-galeria {
+  margin-top: 20%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Fondo circular con degradado igual al ejemplo */
+  background: linear-gradient(180deg, #37c5bf 0%, #1aa39a 100%);
+  /* Sombra exterior y ligera sombra interior para dar volumen */
+  box-shadow:
+    0 10px 24px rgba(8, 46, 68, 0.45),
+    inset 0 -6px 10px rgba(0, 0, 0, 0.12);
+  color: white;
+  padding: 0;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hover / active */
+.carousel-btn-galeria:hover {
+  transform: translateY(-50%) scale(1.04);
+  box-shadow:
+    0 12px 28px rgba(8, 46, 68, 0.55),
+    inset 0 -6px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* PSEUDO-ELEMENTO: cheurón blanco con forma EXACTA (SVG inline) */
+.carousel-btn-galeria::after {
+  content: "";
+  display: block;
+  width: 36px;
+  /* tamaño de la flecha dentro del círculo */
+  height: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* SVG chevron blanca (data URI). Los espacios y # están codificados. */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 32'><path d='M8%206%20L20%2016%20L8%2026' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>");
+  /* pequeña sombra para separar la flecha del fondo */
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.12));
+  pointer-events: none;
+}
+
+/* Girar la flecha para el botón izquierdo */
+.carousel-btn-galeria.left::after {
+  transform: rotate(180deg);
+}
+
+/* OVERLAY LIGHTBOX */
+.overlay-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.imagen-lightbox {
+  width: 80vw;
+  height: auto;
+  max-height: 70vh;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.lightbox-icons {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.lightbox-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.lightbox-icons button,
+.lightbox-icons a {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  transition: background 0.2s;
+}
+
+.lightbox-icons button:hover,
+.lightbox-icons a:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.footer-sponsors-container-galeria {
+  text-align: center;
+}
+
+.footer-sponsors {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+}
+
+.footer a {
+  text-align: center;
+  background: #000;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-galeria {
+  display: inline-block;
+  margin: 22px auto 22px auto;
+  background: #6cc51d;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  width: 288px;
+  padding: 10px 18px;
+  transition: background-color 0.3s ease;
+  gap: 8px;
+}
+
+.btn-galeria:hover {
+  transform: translateY(-2px);
+  background: #5bb215;
+}
+
+.galeria-completa {
+  display: block;
+}
+
+.imagenes-grid-section-completa {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+.imagenes-grid-section-completa img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.imagenes-grid-section-completa img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+.numero-pagina {
+  padding: 1%;
+}
+
+.mini-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+}
+
+.mini-carousel-view {
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.mini-carousel-view img {
+  width: 45vw;
+  max-width: 180px;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+
+.paginacion-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .paginacion-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+  }
+
+  .paginacion-container .btn-galeria {
+    width: 80%;
+    max-width: 250px;
+    margin: 0;
+  }
+
+  .paginacion-container .numero-pagina {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .imagenes-grid-section-completa {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .imagenes-grid-section-completa img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .fila-superior {
+    grid-template-columns: 1fr;
+  }
+
+  .imagenes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .movil {
+    margin-top: 10% !important;
+  }
+
+  .galeria-card {
+    max-width: 100% !important;
+    margin: 15px;
+  }
+
+  .imagen-lightbox {
+    max-width: 95%;
+    max-height: 70vh;
+  }
+
+  .carousel-btn-galeria.right.movil {
+    margin-left: -30px;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .carousel-btn-galeria.left.movil {
+    margin-right: -30px;
+    width: 44px !important;
+    height: 44px !important;
+
+  }
+
+  .footer-sponsors-galeria a{
+    color: white !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .imagenes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .movil {
+    margin-top: 10% !important;
+  }
+}

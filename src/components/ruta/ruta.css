@@ -1,0 +1,219 @@
+/* Contenedor general */
+.ruta-container {
+  text-align: center;
+  padding-bottom: 40px;
+  color: white;
+  min-height: 100vh;
+}
+
+/* =========================
+   CARRUSEL
+   ========================= */
+.carousel {
+  position: relative;
+  max-width: 920px;
+  margin: 40px auto 20px;
+}
+
+.carousel-image {
+  width: 100%;
+  border-radius: 65px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  display: block;
+}
+
+/* Badge de 10Km / 5Km */
+.distance-badge {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: #0a2b2a; /* texto oscuro para contraste */
+  background: linear-gradient(180deg, #c7e229 0%, #7bb717 100%);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* =========================
+   BOTÓN CIRCULAR (FLECHA)
+   ========================= */
+/* El botón visual es el propio .carousel-btn; la flecha blanca se pinta con ::after usando un SVG inline
+   (data URI). Para la versión "left" giramos la flecha 180deg. */
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Fondo circular con degradado igual al ejemplo */
+  background: linear-gradient(180deg, #37c5bf 0%, #1aa39a 100%);
+  /* Sombra exterior y ligera sombra interior para dar volumen */
+  box-shadow:
+    0 10px 24px rgba(8, 46, 68, 0.45),
+    inset 0 -6px 10px rgba(0,0,0,0.12);
+  color: white;
+  padding: 0;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* posicionamiento según lado */
+.carousel-btn.right { right: -52px; }
+.carousel-btn.left  { left: -52px; }
+
+/* Hover / active */
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.04);
+  box-shadow:
+    0 12px 28px rgba(8, 46, 68, 0.55),
+    inset 0 -6px 10px rgba(0,0,0,0.12);
+}
+
+/* PSEUDO-ELEMENTO: cheurón blanco con forma EXACTA (SVG inline) */
+.carousel-btn::after {
+  content: "";
+  display: block;
+  width: 36px;   /* tamaño de la flecha dentro del círculo */
+  height: 36px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* SVG chevron blanca (data URI). Los espacios y # están codificados. */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 32'><path d='M8%206%20L20%2016%20L8%2026' stroke='%23ffffff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>");
+  /* pequeña sombra para separar la flecha del fondo */
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.12));
+  pointer-events: none;
+}
+
+/* Girar la flecha para el botón izquierdo */
+.carousel-btn.left::after {
+  transform: rotate(180deg);
+}
+
+
+
+/* =========================
+   TEXTO Y BOTÓN INSCRIBIRME
+   ========================= */
+.ruta-text {
+  margin: 20px 0;
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+.btn-inscribirme {
+  display: inline-block;
+  margin: 6px auto 22px auto;
+  padding: 12px 34px;
+  background: #6cc51d;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform .15s ease, background .15s ease;
+  width: 288px;
+}
+
+.btn-inscribirme:hover {
+  transform: translateY(-2px);
+  background: #5bb215;
+}
+
+/* =========================
+   PATROCINADORES
+   ========================= */
+.footer-sponsors {
+  max-width: 100%;
+  margin-top: 26px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+  .carousel {
+    margin: 28px 18px 20px;
+  }
+
+  .distance-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+    top: 18px;
+    right: 18px;
+  }
+}
+/* =========================
+   MOBILE: ver 2 imágenes apiladas
+   ========================= */
+.mobile-ruta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    display: none; /* ocultar carrusel en mobile */
+  }
+
+  .mobile-ruta {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    margin: 20px;
+  }
+
+  .mobile-card {
+    position: relative;
+  }
+
+  .mobile-image {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  }
+
+  .mobile-card .distance-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 520px) {
+  .distance-badge {
+    width: 50px;
+    height: 50px;
+    font-size: 13px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .btn-inscribirme {
+    font-size: 16px;
+    padding: 10px 28px;
+    width: 232px;
+  }
+}

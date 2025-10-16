@@ -1,0 +1,463 @@
+.convocatoria-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+}
+
+.convocatoria-main-content {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.convocatoria-header-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.header-card {
+  background: #1B3E76;
+  padding: 1rem 3rem;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  max-width: 262px;
+}
+
+.header-card--highlight {
+  min-width: 690px;
+}
+
+.card-title-mob {
+  background-color: #123b82;
+  /* mismo azul que tu diseño */
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+
+.header-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.convocatoria-sections-container {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Botón Inscribirme */
+.inscribirme-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1400px;
+  margin: 1rem auto;
+}
+
+.inscribirme-btn {
+  background-color: #7ed321;
+  /* Verde brillante */
+  width: 288px;
+  text-align: center;
+  margin-right: 2rem;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.inscribirme-container-mob {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 1rem auto;
+}
+
+.inscribirme-btn-mob {
+  background-color: #7ed321;
+  /* Verde brillante */
+  text-align: center;
+  margin-right: 2rem;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.inscribirme-btn:hover {
+  background-color: #6bb61d;
+}
+
+
+/* Cards principales */
+.info-card {
+  background: #1B3E76;
+  padding: 1.5rem;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  display: flex;
+}
+
+.info-content {
+  width: 100%;
+  color: #fff;
+}
+
+.highlight {
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.highlight-desk{
+  text-align: center;
+  color: #3CB49E;
+}
+
+.highlight-5km {
+  color: #3CB49E;
+  margin-bottom: 1rem;
+}
+
+.sub-highlight-5km {
+  color: #fff;
+  font-size: 12px;
+}
+
+.title {
+  color: #3CB49E;
+  margin-top: 1rem;
+  margin: 0;
+}
+
+.info-content p {
+  margin: 0;
+}
+
+/* Listas */
+.info-content ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.info-content li {
+  margin: 0.3rem 0;
+}
+
+/* Premios estilo tabla pero con grid */
+.premios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid #3CB49E;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.premio-col {
+  border: 1px solid #3CB49E;
+  padding: 0.6rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.premio-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.4rem 0;
+}
+
+.circle {
+  background: #3CB49E;
+  color: #FFFFFF;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Bonus */
+.bonus-box {
+  border: 1px solid #3CB49E;
+  border-radius: 8px;
+  text-align: center;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+/* Sponsors */
+.footer-sponsors-container {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.footer-sponsors {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+}
+
+/* SOLO MOBILE */
+@media (max-width: 768px) {
+
+  /* Contenedor principal del carrusel */
+  .mobile-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* centra horizontal */
+    justify-content: center;
+    /* centra vertical si hay espacio */
+    width: 100%;
+    max-width: 80vw;
+    /* más pequeño que pantalla */
+    margin: 0 auto;
+  }
+
+  .info-card {
+    display: flex;
+    min-width: 256px;
+    max-width: 300px;
+  }
+
+  /* Cada slide (card con título) */
+  .carousel-slide {
+    width: 100%;
+    max-width: 300px;
+    /* tamaño reducido */
+    margin: 0 auto;
+    min-height: 400px;
+    /* altura mínima */
+  }
+
+  /* Título de la card */
+  .card-title-mob {
+    font-size: 14px;
+    padding: 6px;
+    height: 30px;
+    align-items: center;
+    background: #1B3E76;
+  }
+
+  /* Botones de navegación (prev/next) */
+  .carousel-btn {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-btn.right {
+    right: 0;
+  }
+
+  .carousel-btn.left {
+    left: 0;
+  }
+
+
+  /* Contenedor botón Inscribirme */
+  .inscribirme-container-mob {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* centrado vertical */
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+
+  .premio-col {
+    padding: 4px;
+  }
+
+  /* Botón Inscribirme */
+  .inscribirme-btn-mob {
+    margin: 0;
+    /* quitar margen extra */
+    width: auto;
+    min-width: 200px;
+    /* ancho mínimo */
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* GRID de premios: 3 columnas */
+  .carousel-slide .premios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    border: none;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .carousel-slide .premio-col {
+    border: 1px solid #3CB49E;
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+  }
+
+  /* Cada premio en columna derecha */
+  .carousel-slide .premio-item {
+    border: 1px solid #3CB49E;
+    border-radius: 6px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .carousel-slide .circle {
+    background: #3CB49E;
+    color: #fff;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+
+  /* --- Bono integrado en el grid --- */
+  .carousel-slide .bonus-box {
+    border: 1px solid #3CB49E;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    color: #3CB49E;
+    background: none;
+    grid-column: span 2;
+    /* ocupa las dos primeras columnas */
+    grid-row: span 5;
+    /* ocupa el mismo alto que los 5 premios */
+    display: block;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+}
+
+/* --- Estilo específico para el slide de 5K en mobile --- */
+.premios5k-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto repeat(5, auto);
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.premios5k-grid .categoria,
+.premios5k-grid .edad {
+  border: 1px solid #3CB49E;
+  border-radius: 6px;
+  padding: 6px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.bonus-box-mob {
+  border: 1px solid #3CB49E;
+  border-radius: 8px;
+  text-align: center;
+  padding: 12px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 7;
+  /* ocupa el alto de los premios */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bonus-box-mob .bonus-title {
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.bonus-box-mob .bonus-amount {
+  color: #3CB49E;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+.premios5k-grid .premio-item {
+  border: 1px solid #3CB49E;
+  border-radius: 6px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  background: none;
+  grid-column: 2 / 3;
+}
+
+.premios5k-grid .circle {
+  background: #3CB49E;
+  color: #fff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+

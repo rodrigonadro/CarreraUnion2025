@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: linear-gradient(to bottom, #0d3b82, #0a2b5a);
+  font-family: 'Open Sans', sans-serif;
+}
+
+body.intro-active {
+  overflow: hidden;
+}
+
+/* Fondo principal */
+.app-container {
+  position: relative;
+  color: white;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* ---------------- INTRO ---------------- */
+.intro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.intro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.intro-logo--desktop {
+  max-width: 750px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.intro-footer--desktop {
+  margin-top: 1rem;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.intro-logo--mobile {
+  max-width: 290px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.intro-footer--mobile {
+  margin-top: 8rem;
+  max-width: 238px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------------- MAIN ---------------- */
+.main {
+  position: relative;
+  text-align: center;
+}
+
+.main-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.main-powerade {
+  max-width: 364px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 40px;
+}
+
+.main-powerade--mobile {
+  max-width: 168px;
+  height: auto;
+  object-fit: contain;
+  margin-top: 10px;
+}
+
+.main-logo {
+  width: 102%;
+  height: auto;
+  object-fit: contain;
+}
+
+.main-logo_mobile-union {
+  width: 100%;
+}
+
+.main-logo-mobile-union {
+  max-width: 229px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 1.5rem;
+}
+
+.main-text {
+  max-width: 650px;
+  padding: 0 1rem;
+}
+
+.main-text h3 {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.main-text p {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: #31c1eb;
+}
+
+/* ---------------- BOTONES ---------------- */
+.race-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.race-button {
+  width: 70px;
+  height: 70px;
+  background: #a3d421;
+  border-radius: 50%;
+  font-weight: bold;
+  color: #0a2b5a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.race-button:hover {
+  background: linear-gradient(to bottom, #0d3b82, #0a2b5a);
+  color: #a3d421;
+  transform: scale(1.1);
+}
+
+/* ---------------- FOOTER ---------------- */
+.footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  padding-bottom: 2.5rem;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-icons img {
+  width: 22px;
+  height: 22px;
+}
+
+.footer p,
+.footer a {
+  font-size: 0.8rem;
+}
+
+.footer a {
+  text-decoration: underline;
+  color: white;
+}
+
+.footer-sponsors {
+  margin-top: 1.5rem;
+  max-width: 650px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ---------- Detalle de tarjeta al elegir distancia ---------- */
+.race-section {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.race-info {
+  position: relative;
+  background: #a3d421;
+  /* verde como tu diseño */
+  color: #0a2b5a;
+  padding: 1rem 2.5rem 1rem;
+  /* espacio extra para el icono */
+  border-radius: 12px;
+  max-width: 520px;
+  /* un poco menos ancho */
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  font-size: 0.95rem;
+}
+
+.race-info__back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: transparent;
+  border: 0;
+  padding: 4px;
+  cursor: pointer;
+  color: #0a2b5a;
+  line-height: 0;
+}
+
+.race-info__back svg {
+  width: 22px;
+  height: 22px;
+}
+
+.race-info__title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.race-info__price {
+  margin: .2rem 0 .1rem;
+  font-weight: 700;
+}
+
+.race-info__cta {
+  display: inline-block;
+  margin-top: .2rem;
+  text-decoration: underline;
+  color: #0a2b5a;
+  font-weight: 600;
+}
