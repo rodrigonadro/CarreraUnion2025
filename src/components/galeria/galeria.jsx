@@ -9,8 +9,9 @@ export default function Galeria() {
     const [startMoveUp, setStartMoveUp] = useState(false);
     const [showMain, setShowMain] = useState(false);
     const [showNavbar, setShowNavbar] = useState(false);
-    const imagenesArray = Array.from({ length: 4 }, (_, i) => `/src/assets/images/${i + 1}.jpg`);
-    const imagenes = Array.from({ length: 60 }, (_, i) => `/src/assets/images/${i + 1}.jpg`);
+    const imagenesArray = Array.from({ length: 4 }, (_, i) => `/images/${i + 1}.JPG`);
+    const thumbs = Array.from({ length: 60 }, (_, i) => `/images/thumbs/${i + 1}.JPG`);
+    const imagenes = Array.from({ length: 60 }, (_, i) => `/images/${i + 1}.JPG`);
     const [mostrarGaleriaCompleta, setMostrarGaleriaCompleta] = useState(false);
     const [paginaActual, setPaginaActual] = useState(1);
     const imagenesPorPagina = 15;
@@ -146,6 +147,7 @@ export default function Galeria() {
                                                 src={src}
                                                 alt={`Imagen ${index + 1}`}
                                                 onClick={() => setIndiceSeleccionado(indiceInicial + index)}
+                                                loading="lazy"
                                             />
                                         ))}
                                     </div>
@@ -177,10 +179,11 @@ export default function Galeria() {
                                 <div className="imagenes-grid-section-completa">
                                     {imagenesPagina.map((src, index) => (
                                         <img
-                                            key={index}
-                                            src={src}
-                                            alt={`Imagen ${indiceInicial + index + 1}`}
-                                            onClick={() => setIndiceSeleccionado(indiceInicial + index)}
+                                        key={index}
+                                        src={thumbs[indiceInicial + index]} // Miniatura para mostrar
+                                        alt={`Imagen ${indiceInicial + index + 1}`}
+                                        onClick={() => setIndiceSeleccionado(indiceInicial + index)} // Usará imagen original al hacer clic
+                                        loading="lazy"
                                         />
                                     ))}
                                 </div>

@@ -1,6 +1,6 @@
-// Navbar.jsx
 import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"  // 👈 Import necesario para rutas internas
 import './navbar.css'
 
 export default function Navbar() {
@@ -53,9 +53,9 @@ export default function Navbar() {
 
           {/* Links visibles siempre */}
           <nav className="nav-menu">
-            <a href="/convocatoria">Convocatoria</a>
-            <a href="/ruta">Nuestra ruta</a>
-            <a href="/galeria">Galeria</a>
+            <Link to="/convocatoria">Convocatoria</Link>
+            <Link to="/ruta">Nuestras rutas</Link>
+            <Link to="/galeria">Galeria</Link>                        
           </nav>
         </div>
       </div>
