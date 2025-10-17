@@ -5,13 +5,5 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    // https: {
-    //   key: fs.readFileSync(path.resolve(__dirname, 'cert/key.pem')),
-    //   cert: fs.readFileSync(path.resolve(__dirname, 'cert/cert.pem')),
-    // },
-    port: 5173,
-    // Agregamos todos los hosts que quieres usar
-    host: ['localhost', 'vite.farmatodo.com.mx', 'farmatodo.com.mx', 'carrera.farmatodo.com.mx'],
-  },
+  base: process.env.NODE_ENV === 'production' ? '/CarreraUnion2025/' : '/', // ✅  }
 })
