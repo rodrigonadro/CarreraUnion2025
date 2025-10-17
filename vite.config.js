@@ -5,5 +5,5 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/CarreraUnion2025/' : '/', // ✅  }
-})
+  base: process.env.NODE_ENV === 'production' ? '/CarreraUnion2025/' : '/'
+});
